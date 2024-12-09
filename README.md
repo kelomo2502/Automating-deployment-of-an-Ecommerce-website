@@ -4,19 +4,19 @@
 
 A technology consulting firm, is adopting a cloud architecture for its software applications. As a DevOps Engineer, your task is to design and implement a robust CI/CD pipeline using Jenkins to automate the deployment of a web application. The goal is to achieve continuous integration, continuous deployment, and ensure the scalability and reliability of the applications.
 
-## Jenkins setup
+1. Jenkins setup
 
 Let's quickly lookup the installation process for jenkins in the offical documentation
 Clikc link <https://www.jenkins.io/doc/book/installing/linux/>
 
-1. We would be needing the Java JKD as a dependency. So we would install that first by running the following commands:
+- We would be needing the Java JKD as a dependency. So we would install that first by running the following commands:
 
 ```bash
 sudo apt update
 sudo apt install fontconfig openjdk-17-jre
 ```
 
-2. We would install jenkins by the running the following commands:
+- We would install jenkins by the running the following commands:
 
 ```bash
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
@@ -28,7 +28,7 @@ sudo apt-get update
 sudo apt-get install jenkins
 ```
 
-3. We would also need to install docker which we would need for building and running our app as a container. Let's install docker by running the following commands:
+1. We would also need to install docker which we would need for building and running our app as a container. Let's install docker by running the following commands:
 
 ```bash
 # Add Docker's official GPG key:
@@ -63,3 +63,21 @@ On jenkins page we would need to provide Adminpassword to authenticate it. The p
 [Fill signup form](/images/Signup.png)
 - Click save and finsih. Please take note of the jenkins url `http://54.158.123.86:8080/`
 [Save and finish the setup](/images/save_finish.png)
+
+2. Source code management and repository intergration
+
+- Lets first create a freestyle job by goinf to new item menu
+- [new item](/images/new_item.png)
+- next Enter a name
+- select freestyle project
+- Click ok
+- Go to source code management
+- Insert repository URL
+- select the main branch in this case
+- Select GitHub hook trigger for GITScm polling to setup build trigger
+- Click save
+
+## Setup webhook on github
+- Sign into your github account
+- Click my repositories
+- 
