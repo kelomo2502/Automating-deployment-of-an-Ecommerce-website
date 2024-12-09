@@ -88,3 +88,5 @@ On jenkins page we would need to provide Adminpassword to authenticate it. The p
 - Inside the payload url, enter your jenkins webhook url <http://54.225.17.239:8080/web-hook/>
 - Choose `application/json` as Content-Type
 - Click add webhook to save
+- Now if we push any commit into the repository, we would notice it triggers a build 
+- This is our freejob in action
