@@ -80,4 +80,10 @@ On jenkins page we would need to provide Adminpassword to authenticate it. The p
 ## Setup webhook on github
 - Sign into your github account
 - Click my repositories
-- 
+- Select the ecommerce web app repository
+- Click on settings
+- On the left hand corner , find webhooks tab
+- Click on webhooks and add webhook
+- Inside the payload url, enter your jenkins webhook url <http://54.225.17.239:8080/web-hook/>
+- Choose `application/json` as Content-Type
+- Click add webhook to save
