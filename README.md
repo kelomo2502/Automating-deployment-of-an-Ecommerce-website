@@ -88,5 +88,52 @@ On jenkins page we would need to provide Adminpassword to authenticate it. The p
 - Inside the payload url, enter your jenkins webhook url <http://54.225.17.239:8080/web-hook/>
 - Choose `application/json` as Content-Type
 - Click add webhook to save
-- Now if we push any commit into the repository, we would notice it triggers a build 
+- Now if we push any commit into the repository, we would notice it triggers a build
 - This is our freejob in action
+For the pipline
+- Click on the new item to create a new job
+- Give it a descriptive name
+- Choose the pipline type
+- Click ok
+- Go to configuration and look for build trigger
+- Select GitHub hook trigger for GITScm polling
+- Add pipeline script
+
+```yaml
+pipeline {
+    agent any
+
+    stages {
+        stage('Connect To Github') {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/kelomo2502/Automating-deployment-of-an-Ecommerce-website.git']])
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    sh 'docker build -t dockerfile .'
+                }
+            }
+        }
+        stage('Run Docker Container') {
+            steps {
+                script {
+                    // Stop and remove the existing container if it exists
+                    sh '''
+                    docker stop ecommerce-container || true
+                    docker rm ecommerce-container || true
+                    docker run -itd --name ecommerce-container -p 8081:80 dockerfile
+                    '''
+                }
+            }
+        }
+    }
+}
+
+```
+
+- click save
+Now if we add and commit any changes to our repo and push to github, The webhook kicks in and trigger a build in the piple which executes the piple script.
+- Our website can be access via our `serverip:8081` since we map port 8081:80 in our script
+That is our pipeline job in action
