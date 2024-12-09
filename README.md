@@ -59,3 +59,7 @@ On jenkins page we would need to provide Adminpassword to authenticate it. The p
 
 - Next we would install suggested plugins
 [Install plugins](/images/Install-plugins.png)
+- Next we would fill the signup form save and continue
+[Fill signup form](/images/Signup.png)
+- Click save and finsih. Please take note of the jenkins url `http://54.158.123.86:8080/`
+[Save and finish the setup](/images/save_finish.png)
