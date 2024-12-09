@@ -51,4 +51,11 @@ next run
 
 Now we have Jenkins, JDK and Docker setup on our Ubuntu ec2 instance
 
-Lets go to <http://serverip:8080> to complete our jenkins setup
+Lets go to <http://serverip:8080> to complete our jenkins
+
+## Completing our jenkins setup
+
+On jenkins page we would need to provide Adminpassword to authenticate it. The password can be gotten by running `cat  /var/lib/jenkins/secrets/initialAdminPassword`
+
+- Next we would install suggested plugins
+[Install plugins](/images/Install-plugins.png)
